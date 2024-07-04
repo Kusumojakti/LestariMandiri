@@ -9,22 +9,21 @@ $(document).ready(function () {
             $('#edt_role').val(data.role);
             $('#edt_notelpon').val(data.noTelp);
             $('#edt_alamat').val(data.alamat);
-            $('#editForm').attr('action', '/karyawan/' + id)
+            $('#editForm').attr('action', '/karyawan/' + id);
             $('#editdata').modal('show');
         });
     })
 
     $('#simpan-edit').click(function () {
-        var url = $('#editForm').attr('action');
-        console.log(url);
+        var actionUrl = $('#editForm').attr('action');
+        console.log(actionUrl);
     })
-
     // $('#editForm').submit(function (e) {
     //     e.preventDefault();
     //     var actionUrl = $(this).attr('action');
     //     var formData = $(this).serialize();
     //     $.ajax({
-    //         url: actionUrl,
+    //         url: '/karyawan/7',
     //         method: 'PUT',
     //         data: formData,
     //         success: function (response) {

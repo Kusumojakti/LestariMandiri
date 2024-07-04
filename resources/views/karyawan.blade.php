@@ -18,10 +18,10 @@
                             </select>
                         </div> --}}
                 <!-- <div class="col-12 mt-4 flex-column d-flex align-items-end">
-                                                                                                                                                                                                                                                                                                                                                                                        <button type="button" class="btn btn-primary mb-2 w-50">Tambah Data</button>
-                                                                                                                                                                                                                                                                                                                                                                                        <button type="button" class="btn btn-primary mb-2 w-50">Edit</button>
-                                                                                                                                                                                                                                                                                                                                                                                        <button type="button" class="btn btn-primary mb-2 w-50">Hapus</button>
-                                                                                                                                                                                                                                                                                                                                                                                </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" class="btn btn-primary mb-2 w-50">Tambah Data</button>
+                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" class="btn btn-primary mb-2 w-50">Edit</button>
+                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" class="btn btn-primary mb-2 w-50">Hapus</button>
+                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                 {{-- </div>
                 </div> --}}
                 <section class="section">
@@ -177,7 +177,7 @@
                             <div class="mb-3">
                                 <label for="edt_username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="edt_username" name="username"
-                                    placeholder="Masukkan Username" required>
+                                    placeholder="Masukkan Username" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="edt_role" class="form-label">Role</label>

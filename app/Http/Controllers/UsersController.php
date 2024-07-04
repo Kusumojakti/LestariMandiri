@@ -83,7 +83,6 @@ class UsersController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama' => 'required|string',
-            'username' => 'required|unique:users',
             'role' => 'required',
             'noTelp' => 'required|max:15',
             'alamat' => 'required'
@@ -92,11 +91,10 @@ class UsersController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator->errors());
         }
-        $user = User::find($id)->first();
+        $user = User::find($id);
 
         $user->update([
             'nama' => $request->nama,
-            'username' => $request->username,
             'role' => $request->role,
             'noTelp' => $request->noTelp,
             'alamat' => $request->alamat
