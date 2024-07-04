@@ -17,15 +17,22 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-12 mt-4 flex-column d-flex align-items-end">
+                <!-- <div class="col-12 mt-4 flex-column d-flex align-items-end">
                         <button type="button" class="btn btn-primary mb-2 w-50">Tambah Data</button>
-                </div>
+                </div> -->
             </div>
         </div>
           <section class="section">
-            <div class="row justify-content-end">
+            <div class="row justify-content-end mt-4">
                 <div class="col-12 col-lg-6" >
-                    <input class="form-control mt-4" id="exampleDataList" placeholder="Search...">
+                    <div class="row">
+                        <div class="col-lg-8 mb-3">
+                            <input class="form-control" id="exampleDataList" placeholder="Search...">
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-primary w-100 text-bold-800" data-bs-target="#tambahorderan" data-bs-toggle="modal">Tambah Data</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="row mt-4" id="basic-table">
                     <div class="col-12 col-lg-12">
@@ -72,5 +79,54 @@
           </section>
         </section>
       </div>
+
+    <!-- modal tambah order -->
+    <div class="modal fade" id="tambahorderan" aria-hidden="true" aria-labelledby="tambahorderan" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Tambah Data Orderan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="edt_banyaknya" class="form-label">Nama Barang</label>
+                    <input type="text" class="form-control" id="edt_banyaknya" placeholder="Masukkan Nama Pelanggan">
+                </div>
+                <div class="mb-3">
+                    <label for="edt_banyaknya" class="form-label">Banyaknya</label>
+                    <input type="text" class="form-control" id="edt_banyaknya" placeholder="Masukkan No Telpon Pelanggan">
+                </div>
+                <div class="mb-3">
+                    <label for="edt_harga" class="form-label">Harga</label>
+                    <input type="text" class="form-control" id="edt_harga" placeholder="Masukkan Alamat">
+                </div>
+                <div class="mb-3">
+                    <label for="edt_keterangan" class="form-label">Keterangan</label>
+                    <input type="text" class="form-control" id="edt_keterangan" placeholder="Masukkan Alamat">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Simpan</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+            </div>
+            </div>
+        </div>
+    </div>
     </section>
 @endsection

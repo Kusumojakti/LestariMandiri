@@ -27,18 +27,16 @@
 		      		<span class="fa fa-user-o"></span>
 		      	</div>
 		      	<h3 class="text-center mb-4">Sign In</h3>
-						<form action="#" class="login-form">
+				<form action="#" class="login-form" method="">
 		      		<div class="form-group">
 		      			<input type="text" class="form-control rounded-left" placeholder="Username" required>
 		      		</div>
-	            <div class="form-group d-flex">
-	              <input type="password" class="form-control rounded-left" placeholder="Password" required>
-	            </div>
-	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
-	            </div>
-	            <div class="form-group d-md-flex">
-	            
+					<div class="form-group d-flex">
+					<input type="password" class="form-control rounded-left" placeholder="Password" required>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
+					</div>          
 	          </form>
 	        </div>
 				</div>
