@@ -111,4 +111,11 @@ class UsersController extends Controller
         $user->delete();
         return redirect()->back();
     }
+
+    public function getDriver()
+    {
+        $users = User::where('role', 'driver')->get();
+
+        return response()->json($users);
+    }
 }

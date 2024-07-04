@@ -17,7 +17,9 @@ class Kendaraan extends Model
         'user_id'
     ];
 
-    // protected $primaryKey = 'noPol';
+    protected $primaryKey = 'noPol';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     public function driver(): HasOne
     {

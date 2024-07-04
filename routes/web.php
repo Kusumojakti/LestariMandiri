@@ -23,6 +23,7 @@ Route::middleware(cekSession::class)->group(function () {
 
     // users atau karyawan
     Route::resource('/karyawan', UsersController::class)->middleware('roles:admin');
+    Route::get('/getDriver', [UsersController::class, 'getDriver'])->middleware('roles:admin');
 
     // Pelanggan
     Route::resource('/pelanggan', PelangganController::class)->middleware('roles:admin');
