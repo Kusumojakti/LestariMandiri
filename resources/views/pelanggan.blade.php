@@ -48,7 +48,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>No. Pel</th>
-                                                            <th>Nama Karyawan</th>
+                                                            <th>Nama Pelanggan</th>
                                                             <th>No Telp</th>
                                                             <th>Alamat</th>
                                                             <th>Aksi</th>
