@@ -64,7 +64,7 @@
                                                     <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Opsi
                                                     </button>
-                                                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                                                    <ul class="dropdown-menu    ">
                                                         <li><a class="dropdown-item" href="#" data-bs-target="#editdata" data-bs-toggle="modal">Edit</a></li>
                                                         <li><a class="dropdown-item" href="#">Hapus</a></li>
                                                     </ul>
@@ -89,21 +89,25 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Tambah Data Karyawan</h1>
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Tambah Data Kendaraan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="edt_namapelanggan" class="form-label">Nama Pelanggan</label>
-                    <input type="text" class="form-control" id="edt_namapelanggan" placeholder="Masukkan Nama Pelanggan">
+                    <label for="edt_nopol" class="form-label">Nopol</label>
+                    <input type="text" class="form-control" id="edt_nopol" placeholder="Masukkan Nama Pelanggan">
                 </div>
                 <div class="mb-3">
-                    <label for="edt_notelpon" class="form-label">No Telepon</label>
-                    <input type="text" class="form-control" id="edt_notelpon" placeholder="Masukkan No Telpon Pelanggan">
+                    <label for="edt_jeniskendaraan" class="form-label">Jenis Kendaraan</label>
+                    <input type="text" class="form-control" id="edt_jeniskendaraan" placeholder="Masukkan No Telpon Pelanggan">
                 </div>
                 <div class="mb-3">
-                    <label for="edt_alamat" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="edt_alamat" placeholder="Masukkan Alamat">
+                    <label for="edt_bbm" class="form-label">BBM</label>
+                    <input type="text" class="form-control" id="edt_bbm" placeholder="Masukkan Alamat">
+                </div>
+                <div class="mb-3">
+                    <label for="edt_driver" class="form-label">Driver</label>
+                    <input type="text" class="form-control" id="edt_driver" placeholder="Masukkan Alamat">
                 </div>
             </div>
             <div class="modal-footer">
@@ -134,21 +138,25 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data Karyawan</h1>
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data Kendaraan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="edt_namapelanggan" class="form-label">Nama Pelanggan</label>
-                    <input type="text" class="form-control" id="edt_namapelanggan" placeholder="Masukkan Nama Pelanggan">
+                    <label for="edt_nopol" class="form-label">Nopol</label>
+                    <input type="text" class="form-control" id="edt_nopol" placeholder="Masukkan Nama Pelanggan">
                 </div>
                 <div class="mb-3">
-                    <label for="edt_notelpon" class="form-label">No Telepon</label>
-                    <input type="text" class="form-control" id="edt_notelpon" placeholder="Masukkan No Telpon Pelanggan">
+                    <label for="edt_jeniskendaraan" class="form-label">Jenis Kendaraan</label>
+                    <input type="text" class="form-control" id="edt_jeniskendaraan" placeholder="Masukkan No Telpon Pelanggan">
                 </div>
                 <div class="mb-3">
-                    <label for="edt_alamat" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="edt_alamat" placeholder="Masukkan Alamat">
+                    <label for="edt_bbm" class="form-label">BBM</label>
+                    <input type="text" class="form-control" id="edt_bbm" placeholder="Masukkan Alamat">
+                </div>
+                <div class="mb-3">
+                    <label for="edt_driver" class="form-label">Driver</label>
+                    <input type="text" class="form-control" id="edt_driver" placeholder="Masukkan Alamat">
                 </div>
             </div>
             <div class="modal-footer">

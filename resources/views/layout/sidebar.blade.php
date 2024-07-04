@@ -133,7 +133,7 @@
         
         <li class="sidebar-item">
           <a href="#" class="sidebar-link">
-            <i class="fa-solid fa-truck-fast"></i>
+            <i class="fa-solid fa-key"></i>
             <span>Change Password</span>
           </a>
         </li>

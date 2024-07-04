@@ -36,17 +36,12 @@
           <section class="section">
             <div class="row justify-content-end">
                 <div class="col-12 col-lg-6" >
-                   <div class="col-3">
-                       <label for="date" class="col-1 col-form-label">Date</label>
+                   <div class="col-11">
+                       <label for="date" class="col-form-label">Date</label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12">
                         <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control" id="date"/>
-                            <span class="input-group-append">
-                            <span class="input-group-text bg-light d-block">
-                                <i class="fa fa-calendar"></i>
-                            </span>
-                            </span>
+                            <input type="date" class="form-control" id="date"/>
                         </div>
                     </div>
                 </div>
@@ -96,7 +91,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
           </section>
         </section>
