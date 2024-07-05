@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Http\Requests\StoreBarangRequest;
 use App\Http\Requests\UpdateBarangRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BarangController extends Controller
 {
@@ -31,6 +32,27 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'kodeBrg' => 'required|unique:barangs',
+            'stock' => 'required',
+            'harga' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        $barang = Barang::create([
+            'nama' => $request->nama,
+            'kodeBrg' => $request->kodeBrg,
+            'stock' => $request->stock,
+            'harga' => $request->harga
+        ]);
+
+        if ($barang) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -46,7 +68,7 @@ class BarangController extends Controller
      */
     public function edit(Barang $barang)
     {
-        //
+        return response()->json($barang);
     }
 
     /**
@@ -54,7 +76,25 @@ class BarangController extends Controller
      */
     public function update(Request $request, Barang $barang)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'stock' => 'required',
+            'harga' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        $barang->update([
+            'nama' => $request->nama,
+            'stock' => $request->stock,
+            'harga' => $request->harga
+        ]);
+
+        if ($barang) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -62,6 +102,7 @@ class BarangController extends Controller
      */
     public function destroy(Barang $barang)
     {
-        //
+        $barang->delete();
+        return redirect()->back();
     }
 }

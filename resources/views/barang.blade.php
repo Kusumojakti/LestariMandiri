@@ -58,7 +58,7 @@
                                                                             </li>
                                                                             <li>
                                                                                 <form
-                                                                                    action="{{ route('karyawan.destroy', $item->kodeBrg) }}"
+                                                                                    action="{{ route('barang.destroy', $item->kodeBrg) }}"
                                                                                     method="POST">
                                                                                     @csrf
                                                                                     @method('DELETE')
@@ -140,7 +140,7 @@
                             <div class="mb-3">
                                 <label for="edt_kodeBrg" class="form-label">Kode Barang</label>
                                 <input type="text" class="form-control" id="edt_kodeBrg" name="kodeBrg"
-                                    placeholder="Masukkan Kode Barang" required>
+                                    placeholder="Masukkan Kode Barang" required disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="edt_namaBarang" class="form-label">Nama Barang</label>
