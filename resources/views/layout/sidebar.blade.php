@@ -116,15 +116,6 @@
         </div>
         <!-- end of navbar -->
     </div>
-    <li class="sidebar-title">Pengaturan</li>
-
-    <li class="sidebar-item">
-        <a href="#" class="sidebar-link">
-            <i class="fa-solid fa-key"></i>
-            <span>Change Password</span>
-        </a>
-    </li>
-    </ul>
 </div>
 <!-- end of navbar -->
 </div>

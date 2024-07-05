@@ -51,4 +51,8 @@ Route::middleware(cekSession::class)->group(function () {
     Route::get('/changepass', function () {
         return view('change_password');
     });
+    Route::get('/addorders', function () {
+        return view('tambahorder');
+    });
+    
 });

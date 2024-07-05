@@ -2,12 +2,12 @@
 
 @section('content')
 <section class="section">
-    <div class="page-heading">
+    <!-- <div class="page-heading">
         <h3>Data Orderan</h3>
-    </div>
+    </div> -->
     <div class="page-content">
         <section class="row">
-          <div class="col-12 col-lg-5">
+          <!-- <div class="col-12 col-lg-5">
             <div class="row">
                 <div class="col-12">
                     <select class="form-select" aria-label="Default select example">
@@ -23,19 +23,19 @@
             </div>
         </div>
           <section class="section">
-            <div class="row justify-content-end mt-4">
-                <div class="col-12 col-lg-6" >
-                    <div class="row">
-                        <div class="col-lg-8 mb-3">
+            <div class="row ">
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <h3 class="mb-0">Data Orderan</h3>
+                    <div class="d-flex">
+                        <div class="me-2">
                             <input class="form-control" id="exampleDataList" placeholder="Search...">
                         </div>
-                        <div class="col-lg-4">
+                        <div>
                             <button type="button" class="btn btn-primary w-100 text-bold-800" data-bs-target="#tambahorderan" data-bs-toggle="modal">Tambah Data</button>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-4" id="basic-table">
-                    <div class="col-12 col-lg-12">
+                    <div class="col-12 col-lg-12 mt-4">
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
@@ -72,9 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
-
             </div>
           </section>
         </section>
