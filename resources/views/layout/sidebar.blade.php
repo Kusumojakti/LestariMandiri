@@ -93,21 +93,21 @@
         </li>
 
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="/karyawan" class="sidebar-link">
             <i class="fa-solid fa-user-tie"></i>
             <span>Data Karyawan</span>
           </a>
         </li>
 
         <li class="sidebar-item "">
-          <a href="#" class="sidebar-link">
+          <a href="/pelanggan" class="sidebar-link">
             <i class="fa-solid fa-users"></i>
             <span>Data Pelanggan</span>
           </a>
         </li>
 
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="/kendaraan" class="sidebar-link">
             <i class="fa-solid fa-car"></i>
             <span>Data Kendaraan</span>
           </a>
@@ -116,14 +116,14 @@
         <li class="sidebar-title">Transaksi</li>
         
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="/laporan" class="sidebar-link">
             <i class="fa-solid fa-truck-fast"></i>
             <span>Data Pengiriman</span>
           </a>
         </li>
 
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="/status-kirim" class="sidebar-link">
             <i class="fa-solid fa-truck-fast"></i>
             <span>Status Pengiriman</span>
           </a>
@@ -132,7 +132,7 @@
         <li class="sidebar-title">Pengaturan</li>
         
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="/changepass" class="sidebar-link">
             <i class="fa-solid fa-key"></i>
             <span>Change Password</span>
           </a>
