@@ -3,27 +3,11 @@
 @section('content')
     <section class="section">
         <div class="page-heading">
-            <h3>Data Pelanggan</h3>
+            <h3>Data Barang</h3>
+
         </div>
         <div class="page-content">
             <section class="row">
-                {{-- <div class="col-12 col-lg-5">
-                    <div class="row">
-                        <div class="col-12">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div> --}}
-                <!-- <div class="col-12 mt-4 flex-column d-flex align-items-end">
-                                                                                                                                                <button type="button" class="btn btn-primary mb-2 w-50">Tambah Data</button>
-                                                                                                                                                <button type="button" class="btn btn-primary mb-2 w-50">Edit</button>
-                                                                                                                                                <button type="button" class="btn btn-primary mb-2 w-50">Hapus</button>
-                                                                                                                                        </div> -->
-                {{-- </div>
-                </div> --}}
                 <section class="section">
                     <div class="row justify-content-end mt-4">
                         <div class="col-12 col-lg-6">
@@ -47,20 +31,20 @@
                                                 <table class="table table-lg">
                                                     <thead>
                                                         <tr>
-                                                            <th>No. Pel</th>
+                                                            <th>Kode</th>
                                                             <th>Nama</th>
-                                                            <th>No Telp</th>
-                                                            <th>Alamat</th>
+                                                            <th>Stock</th>
+                                                            <th>Harga</th>
                                                             <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($data as $item)
                                                             <tr>
-                                                                <td class="text-bold-500">{{ $item->id }}</td>
+                                                                <td class="text-bold-500">{{ $item->kodeBrg }}</td>
                                                                 <td class="text-bold-500">{{ $item->nama }}</td>
-                                                                <td class="text-bold-500">{{ $item->noTelp }}</td>
-                                                                <td class="text-bold-500">{{ $item->alamat }}</td>
+                                                                <td class="text-bold-500">{{ $item->stock }}</td>
+                                                                <td class="text-bold-500">{{ $item->harga }}</td>
                                                                 <td>
                                                                     <div class="dropdown">
                                                                         <button class="btn btn-primary dropdown-toggle"
@@ -70,11 +54,11 @@
                                                                         </button>
                                                                         <ul class="dropdown-menu dropdown-menu-lg-end">
                                                                             <li><button class="dropdown-item edit-btn"
-                                                                                    data-id="{{ $item->id }}">Edit</button>
+                                                                                    data-id="{{ $item->kodeBrg }}">Edit</button>
                                                                             </li>
                                                                             <li>
                                                                                 <form
-                                                                                    action="{{ route('pelanggan.destroy', $item->id) }}"
+                                                                                    action="{{ route('barang.destroy', $item->kodeBrg) }}"
                                                                                     method="POST">
                                                                                     @csrf
                                                                                     @method('DELETE')
@@ -95,7 +79,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </section>
             </section>
@@ -105,26 +88,32 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Tambah Data Pelanggan</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Tambah Data Barang</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="{{ route('pelanggan.store') }}" method="POST">
+                    <form action="{{ route('barang.store') }}" method="POST">
                         @csrf
+
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="add_namapelanggan" class="form-label">Nama Pelanggan</label>
-                                <input type="text" class="form-control" id="add_namapelanggan" name="nama"
-                                    placeholder="Masukkan Nama Pelanggan">
+                                <label for="add_kodeBrg" class="form-label">Kode Barang</label>
+                                <input type="text" class="form-control" id="add_kodeBrg" name="kodeBrg"
+                                    placeholder="Masukkan Kode Barang" required>
                             </div>
                             <div class="mb-3">
-                                <label for="add_notelpon" class="form-label">No Telepon</label>
-                                <input type="text" class="form-control" id="add_notelpon" name="noTelp"
-                                    placeholder="Masukkan No Telpon Pelanggan">
+                                <label for="add_namaBarang" class="form-label">Nama Barang</label>
+                                <input type="text" class="form-control" id="add_namaBarang" name="nama"
+                                    placeholder="Masukkan Nama Barang" required>
                             </div>
                             <div class="mb-3">
-                                <label for="add_alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="add_alamat" name="alamat"
-                                    placeholder="Masukkan Alamat">
+                                <label for="add_stock" class="form-label">Stock</label>
+                                <input type="stock" class="form-control" id="add_stock" name="stock"
+                                    placeholder="Masukkan Stock" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="add_harga" class="form-label">Harga</label>
+                                <input type="text" class="form-control" id="add_harga" name="harga"
+                                    placeholder="Masukkan Harga" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -134,7 +123,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- modal edit data -->
         <div class="modal fade" id="editdata" aria-hidden="true" aria-labelledby="editdata" tabindex="-1">
@@ -144,37 +132,42 @@
                         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Data Karyawan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form method="POST" id="editForm">
+                    <form id="editForm" method="POST">
                         @csrf
                         @method('PUT')
+
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="edt_namapelanggan" class="form-label">Nama Pelanggan</label>
-                                <input type="text" class="form-control" id="edt_namapelanggan" name="nama"
-                                    placeholder="Masukkan Nama Pelanggan">
+                                <label for="edt_kodeBrg" class="form-label">Kode Barang</label>
+                                <input type="text" class="form-control" id="edt_kodeBrg" name="kodeBrg"
+                                    placeholder="Masukkan Kode Barang" required disabled>
                             </div>
                             <div class="mb-3">
-                                <label for="edt_notelpon" class="form-label">No Telepon</label>
-                                <input type="text" class="form-control" id="edt_notelpon" name="noTelp"
-                                    placeholder="Masukkan No Telpon Pelanggan">
+                                <label for="edt_namaBarang" class="form-label">Nama Barang</label>
+                                <input type="text" class="form-control" id="edt_namaBarang" name="nama"
+                                    placeholder="Masukkan Nama Barang" required>
                             </div>
                             <div class="mb-3">
-                                <label for="edt_alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="edt_alamat" name="alamat"
-                                    placeholder="Masukkan Alamat">
+                                <label for="edt_stock" class="form-label">Stock</label>
+                                <input type="stock" class="form-control" id="edt_stock" name="stock"
+                                    placeholder="Masukkan Stock" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edt_harga" class="form-label">Harga</label>
+                                <input type="text" class="form-control" id="edt_harga" name="harga"
+                                    placeholder="Masukkan Harga" required>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="submit">Simpan</button>
+                            <button class="btn btn-primary" id="simpan-edit" type="submit">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     </section>
 @endsection
 
 @section('scripts')
-    <script src="assets/js/pelanggan.js"></script>
+    <script src="assets/js/barang.js"></script>
 @endsection
