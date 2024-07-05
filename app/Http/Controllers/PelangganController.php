@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PelangganController extends Controller
 {
@@ -29,7 +30,25 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'noTelp' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        $pelanggan = Pelanggan::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'noTelp' => $request->noTelp
+        ]);
+
+        if ($pelanggan) {
+            return redirect('/pelanggan');
+        }
     }
 
     /**
@@ -45,7 +64,7 @@ class PelangganController extends Controller
      */
     public function edit(Pelanggan $pelanggan)
     {
-        //
+        return response()->json($pelanggan);
     }
 
     /**
@@ -53,7 +72,23 @@ class PelangganController extends Controller
      */
     public function update(Request $request, Pelanggan $pelanggan)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'noTelp' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        $pelanggan->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'noTelp' => $request->noTelp
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -61,6 +96,7 @@ class PelangganController extends Controller
      */
     public function destroy(Pelanggan $pelanggan)
     {
-        //
+        $pelanggan->delete();
+        return redirect()->back();
     }
 }

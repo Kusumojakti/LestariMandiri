@@ -32,7 +32,7 @@
     </div>
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/compiled/js/app.js"></script>
     @yield('scripts')
 </body>

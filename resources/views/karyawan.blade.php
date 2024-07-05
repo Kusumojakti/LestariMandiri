@@ -18,10 +18,10 @@
                             </select>
                         </div> --}}
                 <!-- <div class="col-12 mt-4 flex-column d-flex align-items-end">
-                                                                                                                                                                                                                                                                                                                                                                                                <button type="button" class="btn btn-primary mb-2 w-50">Tambah Data</button>
-                                                                                                                                                                                                                                                                                                                                                                                                <button type="button" class="btn btn-primary mb-2 w-50">Edit</button>
-                                                                                                                                                                                                                                                                                                                                                                                                <button type="button" class="btn btn-primary mb-2 w-50">Hapus</button>
-                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-primary mb-2 w-50">Tambah Data</button>
+                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-primary mb-2 w-50">Edit</button>
+                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="btn btn-primary mb-2 w-50">Hapus</button>
+                                                                                                                                                                                                                                                                                                                                                                                            </div> -->
                 {{-- </div>
                 </div> --}}
                 <section class="section">
@@ -210,6 +210,5 @@
 @endsection
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/karyawan.js"></script>
 @endsection

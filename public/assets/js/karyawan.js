@@ -18,23 +18,5 @@ $(document).ready(function () {
         var actionUrl = $('#editForm').attr('action');
         console.log(actionUrl);
     })
-    // $('#editForm').submit(function (e) {
-    //     e.preventDefault();
-    //     var actionUrl = $(this).attr('action');
-    //     var formData = $(this).serialize();
-    //     $.ajax({
-    //         url: '/karyawan/7',
-    //         method: 'PUT',
-    //         data: formData,
-    //         success: function (response) {
-    //             $('#editModal').modal('hide');
-    //             location.reload(); // Reload halaman untuk melihat perubahan
-    //         },
-    //         error: function (response) {
-    //             // Tangani error
-    //             alert('Terjadi kesalahan, silakan coba lagi.');
-    //         }
-    //     });
-    // });
 })
 

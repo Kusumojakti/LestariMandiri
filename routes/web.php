@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\UsersController;
@@ -30,6 +31,8 @@ Route::middleware(cekSession::class)->group(function () {
 
     // kendaraan
     Route::resource('/kendaraan', KendaraanController::class)->middleware('roles:admin');
+
+    Route::resource('/barang', BarangController::class)->middleware('roles:admin');
 
 
     Route::get('/orderan', function () {
