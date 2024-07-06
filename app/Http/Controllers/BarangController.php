@@ -6,7 +6,10 @@ use App\Models\Barang;
 use App\Http\Requests\StoreBarangRequest;
 use App\Http\Requests\UpdateBarangRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+
+use function Laravel\Prompts\table;
 
 class BarangController extends Controller
 {
@@ -110,5 +113,17 @@ class BarangController extends Controller
     {
         $brg = Barang::all();
         return response()->json($brg);
+    }
+    
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $data = Barang::where('kodeBrg', 'like', "%{$search}%")
+                        ->orWhere('nama', 'like', "%{$search}%")
+                        ->orWhere('stock', 'like', "%{$search}%")
+                        ->orWhere('harga', 'like', "%{$search}%")
+                        ->get();
+
+        return view('/barang', compact('data'));
     }
 }

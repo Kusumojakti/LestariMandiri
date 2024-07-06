@@ -101,6 +101,16 @@ class OrderController extends Controller
         }
     }
 
+    public function searchorders(Request $request)
+    {
+        $search = $request->input('search');
+        $data = Order::where('faktur_id', 'like', "%{$search}%")
+                        ->orWhere('kodeBrg', 'like', "%{$search}%")
+                        ->get();
+
+        return view('orderan', compact('data'));
+    }
+
     /**
      * Display the specified resource.
      */

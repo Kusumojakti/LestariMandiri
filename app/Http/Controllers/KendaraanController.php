@@ -103,4 +103,13 @@ class KendaraanController extends Controller
         $kendaraan->delete();
         return redirect()->back();
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $data = Kendaraan::where('noPol', 'like', "%{$search}%")
+                ->get();
+
+        return view('/kendaraan', compact('order'));
+    }
 }

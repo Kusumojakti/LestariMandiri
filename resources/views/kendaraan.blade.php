@@ -10,12 +10,14 @@
                             <div class="d-flex justify-content-between align-items-center mt-4">
                                 <h3 class="mb-0">Data Kendaraan</h3>
                                 <div class="d-flex">
-                                    <div class="me-2">
-                                        <input class="form-control" id="exampleDataList" placeholder="Search...">
-                                    </div>
+                                    <form action="/kendaraan" method="GET">
+                                        <div class="me-2">
+                                            <input class="form-control" name="search" type="text" placeholder="Search...">
+                                        </div>
+                                    </form>
                                     <div>
                                         <button type="button" class="btn btn-primary w-100 text-bold-800"
-                                            data-bs-target="#tambahdata" data-bs-toggle="modal">Tambah Data</button>
+                                            data-bs-target="#tambahdata" data-bs-toggle="modal" id="addKendaraan">Tambah Data</button>
                                     </div>
                                 </div>
                             </div>

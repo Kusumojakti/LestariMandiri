@@ -11,9 +11,11 @@
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <h3 class="mb-0">Data Orderan</h3>
                     <div class="d-flex">
-                        <div class="me-2">
-                            <input class="form-control" id="exampleDataList" placeholder="Search...">
-                        </div>
+                        <form action="/order" method="GET">
+                            <div class="me-2">
+                                <input class="form-control" name="search" type="text" placeholder="Search...">
+                            </div>
+                        </form>
                         <div>
                             <a href="/addorders" class="btn btn-primary w-100 text-bold-800">Tambah Data</a>
                         </div>
@@ -36,7 +38,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($order as $item)
+                                            @foreach ($data as $item)
                                                 <tr>
                                                     <td class="text-bold-500">{{ $item->faktur_id }}</td>
                                                     <td class="text-bold-500">{{ $item->kodeBrg }}</td>

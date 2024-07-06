@@ -99,4 +99,13 @@ class PelangganController extends Controller
         $pelanggan->delete();
         return redirect()->back();
     }
+
+    public function searchPelanggan(Request $request)
+    {
+        $search = $request->input('search');
+        $data = Pelanggan::where('nama', 'like', "%{$search}%")
+                        ->get();
+
+        return view('pelanggan', compact('data'));
+    }
 }

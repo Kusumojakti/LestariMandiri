@@ -107,7 +107,7 @@
                 <li class="sidebar-title">Pengaturan</li>
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="/changepass" class="sidebar-link">
                         <i class="fa-solid fa-key"></i>
                         <span>Change Password</span>
                     </a>

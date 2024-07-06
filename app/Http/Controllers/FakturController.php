@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Faktur;
 use App\Http\Requests\StoreFakturRequest;
 use App\Http\Requests\UpdateFakturRequest;
+use App\Models\Pelanggan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,8 @@ class FakturController extends Controller
 
     public function shippedStatus()
     {
+        $fakturs = Faktur::with('pelanggan', 'user')->get();
+
         $user = Auth::user();
         $faktur = null;
         if ($user->role == 'driver') {
@@ -38,16 +41,51 @@ class FakturController extends Controller
                     $query->where('users.id', $id_driver);
                 })
                 ->get();
+
         } else {
             $faktur = Faktur::with('user', 'pelanggan')
                 ->whereHas('user', function ($query) use ($user) {
                     $query->where('role', 'driver');
                 })
                 ->get();
+
         }
 
-        return view('status_pengiriman', ['faktur' => $faktur]);
+        return view('status_pengiriman', ['faktur' => $faktur, 'data' => $fakturs]);
     }
+    public function searchById($id)
+    {
+        $data = Faktur::with('pelanggan' , 'user')
+            ->where('id', $id)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function searchByPelangganId($pelanggan_id)
+    {
+        $data = Faktur::with('pelanggan', 'user')
+            ->where('pelanggan_id', $pelanggan_id)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function getByDate($date)
+    {
+        try {
+            $formattedDate = Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
+            
+            $fakturs = Faktur::whereDate('tanggal', $formattedDate)
+                        ->with(['pelanggan', 'user'])
+                        ->get();
+            
+            return response()->json($fakturs);
+            
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

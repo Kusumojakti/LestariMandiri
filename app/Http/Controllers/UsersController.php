@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -117,5 +118,44 @@ class UsersController extends Controller
         $users = User::where('role', 'driver')->get();
 
         return response()->json($users);
+    }
+
+    public function searchusers(Request $request)
+    {
+        $search = $request->input('search');
+        $data = User::where('nama', 'like', "%{$search}%")
+                        ->orWhere('username', 'like', "%{$search}%")
+                        ->get();
+
+        return view('karyawan', compact('data'));
+    }
+
+    public function forgotpassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'password' => 'required',
+            'confirm_pass' => 'required|same:password'
+        ]);
+
+        if($validator->fails()) {
+            return back()->withErrors(['password' => 'Password Tidak Sama',]);
+        }
+
+        $user = Auth::user();
+        $p = User::find($user->id);
+        if($p){
+            if(Hash::check($request->old_password, $p->password)){
+
+                $p->update([
+                'password' => Hash::make($request->password)
+                ]);
+    
+                return redirect()->back();
+            } else {
+                return back()->withErrors(['old_password' => 'Password Lama Salah']);
+            }
+
+        }
     }
 }

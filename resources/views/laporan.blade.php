@@ -1,4 +1,4 @@
-@extends ('layout.app')
+@extends('layout.app')
 
 @section('content')
     <section class="section">
@@ -13,22 +13,22 @@
                             <label for="nofaktur" class="col-form-label">No. Faktur</label>
                         </div>
                         <div class="col-9">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="nofaktur" id="nofaktur">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach ($data as $item)
+                                    <option value="{{ $item->id }}">{{ $item->id }}</option>
+                                @endforeach 
                             </select>
                         </div>
                         <div class="col-3">
-                            <label for="nofaktur" class="col-form-label">Pelanggan</label>
+                            <label for="pelanggan_id" class="col-form-label">Pelanggan</label>
                         </div>
                         <div class="col-9">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="pelanggan_id" id="pelanggan_id">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach ($data as $pelanggan)
+                                    <option value="{{ $pelanggan->pelanggan->id }}">{{ $pelanggan->pelanggan->nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="input-group date" id="datepicker">
-                                    <input type="date" class="form-control" id="date" />
+                                    <input type="date" class="form-control" id="date" name="date"  />
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                                         <th>Ket.</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="faktur-table-body">
                                                     @foreach ($data as $item)
                                                         <tr>
                                                             <td class="text-bold-500">{{ $item->id }}</td>
@@ -90,4 +90,8 @@
             </section>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script src="assets/js/faktur.js"></script>
 @endsection
