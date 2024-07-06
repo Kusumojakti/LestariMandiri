@@ -1,5 +1,6 @@
 @extends ('layout.app')
 
+@section('title', 'Kendaraan')
 @section('content')
     <section class="section">
         <div class="page-content">
@@ -12,12 +13,14 @@
                                 <div class="d-flex">
                                     <form action="/kendaraan" method="GET">
                                         <div class="me-2">
-                                            <input class="form-control" name="search" type="text" placeholder="Search...">
+                                            <input class="form-control" name="search" type="text"
+                                                placeholder="Search...">
                                         </div>
                                     </form>
                                     <div>
                                         <button type="button" class="btn btn-primary w-100 text-bold-800"
-                                            data-bs-target="#tambahdata" data-bs-toggle="modal" id="addKendaraan">Tambah Data</button>
+                                            data-bs-target="#tambahdata" data-bs-toggle="modal" id="addKendaraan">Tambah
+                                            Data</button>
                                     </div>
                                 </div>
                             </div>

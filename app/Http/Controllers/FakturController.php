@@ -41,21 +41,21 @@ class FakturController extends Controller
                     $query->where('users.id', $id_driver);
                 })
                 ->get();
-
         } else {
             $faktur = Faktur::with('user', 'pelanggan')
                 ->whereHas('user', function ($query) use ($user) {
                     $query->where('role', 'driver');
                 })
                 ->get();
-
         }
 
         return view('status_pengiriman', ['faktur' => $faktur, 'data' => $fakturs]);
     }
+
+
     public function searchById($id)
     {
-        $data = Faktur::with('pelanggan' , 'user')
+        $data = Faktur::with('pelanggan', 'user')
             ->where('id', $id)
             ->get();
         return response()->json($data);
@@ -73,13 +73,12 @@ class FakturController extends Controller
     {
         try {
             $formattedDate = Carbon::createFromFormat('Y-m-d', $date)->format('Y-m-d');
-            
+
             $fakturs = Faktur::whereDate('tanggal', $formattedDate)
-                        ->with(['pelanggan', 'user'])
-                        ->get();
-            
+                ->with(['pelanggan', 'user'])
+                ->get();
+
             return response()->json($fakturs);
-            
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }

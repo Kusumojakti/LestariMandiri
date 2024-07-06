@@ -1,5 +1,6 @@
 @extends ('layout.app')
 
+@section('title', 'Status Pengiriman')
 @section('content')
     <section class="section">
         <div class="page-heading">
@@ -17,17 +18,19 @@
                                 <option selected>Open this select menu</option>
                                 @foreach ($data as $item)
                                     <option value="{{ $item->id }}">{{ $item->id }}</option>
-                                @endforeach 
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-3">
                             <label for="nofaktur" class="col-form-label">Pelanggan</label>
                         </div>
                         <div class="col-9">
-                            <select class="form-select" aria-label="Default select example" name="pelanggan_id" id="pelanggan_id">
+                            <select class="form-select" aria-label="Default select example" name="pelanggan_id"
+                                id="pelanggan_id">
                                 <option selected>Open this select menu</option>
                                 @foreach ($data as $pelanggan)
-                                    <option value="{{ $pelanggan->pelanggan->id }}">{{ $pelanggan->pelanggan->nama }}</option>
+                                    <option value="{{ $pelanggan->pelanggan->id }}">{{ $pelanggan->pelanggan->nama }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -154,5 +157,5 @@
 
 @section('scripts')
     <script src="assets/js/status-pengiriman.js"></script>
-    <script src="assets/js/shipment.js"></script>
+    {{-- <script src="assets/js/shipment.js"></script> --}}
 @endsection

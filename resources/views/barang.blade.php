@@ -1,4 +1,5 @@
 @extends ('layout.app')
+@section('title', 'Data Barang')
 
 @section('content')
     <section class="section">
@@ -12,7 +13,8 @@
                                 <div class="d-flex">
                                     <form action="/search" method="GET">
                                         <div class="me-2">
-                                            <input class="form-control" name="search" type="text" placeholder="Search...">
+                                            <input class="form-control" name="search" type="text"
+                                                placeholder="Search...">
                                         </div>
                                     </form>
                                     <div>

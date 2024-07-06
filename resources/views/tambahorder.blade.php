@@ -1,5 +1,6 @@
 @extends ('layout.app')
 
+@section('title', 'Tambah Order')
 @section('content')
     {{-- @dd($data[0]->nama) --}}
     <section class="section">

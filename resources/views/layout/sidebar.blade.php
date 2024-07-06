@@ -52,58 +52,62 @@
                     </a>
                 </li>
 
-                <li class="sidebar-title">Data</li>
-                <li class="sidebar-item">
-                    <a href="/barang" class="sidebar-link">
-                        <i class="fa-solid fa-box"></i>
-                        <span>Data Barang</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'sales')
+                    <li class="sidebar-title">Data</li>
+                    @if (Auth::user()->role == 'admin')
+                        <li class="sidebar-item">
+                            <a href="/barang" class="sidebar-link">
+                                <i class="fa-solid fa-box"></i>
+                                <span>Data Barang</span>
+                            </a>
+                        </li>
+                    @endif
+                    <li class="sidebar-item">
+                        <a href="/order" class="sidebar-link">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>Data Orderan</span>
+                        </a>
+                    </li>
+                    @if (Auth::user()->role == 'admin')
+                        <li class="sidebar-item">
+                            <a href="/karyawan" class="sidebar-link">
+                                <i class="fa-solid fa-user-tie"></i>
+                                <span>Data Karyawan</span>
+                            </a>
+                        </li>
 
-                <li class="sidebar-item">
-                    <a href="/order" class="sidebar-link">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span>Data Orderan</span>
-                    </a>
-                </li>
+                        <li class="sidebar-item ">
+                            <a href="/pelanggan" class="sidebar-link">
+                                <i class="fa-solid fa-users"></i>
+                                <span>Data Pelanggan</span>
+                            </a>
+                        </li>
 
-                <li class="sidebar-item">
-                    <a href="/karyawan" class="sidebar-link">
-                        <i class="fa-solid fa-user-tie"></i>
-                        <span>Data Karyawan</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item ">
-                    <a href="/pelanggan" class="sidebar-link">
-                        <i class="fa-solid fa-users"></i>
-                        <span>Data Pelanggan</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="/kendaraan" class="sidebar-link">
-                        <i class="fa-solid fa-car"></i>
-                        <span>Data Kendaraan</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-title">Transaksi</li>
-
-                <li class="sidebar-item">
-                    <a href="/faktur" class="sidebar-link">
-                        <i class="fa-solid fa-truck-fast"></i>
-                        <span>Data Pengiriman</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="/status-kirim" class="sidebar-link">
-                        <i class="fa-solid fa-truck-fast"></i>
-                        <span>Status Pengiriman</span>
-                    </a>
-                </li>
-
+                        <li class="sidebar-item">
+                            <a href="/kendaraan" class="sidebar-link">
+                                <i class="fa-solid fa-car"></i>
+                                <span>Data Kendaraan</span>
+                            </a>
+                        </li>
+                    @endif
+                @endif
+                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'owner' or Auth::user()->role == 'driver')
+                    <li class="sidebar-title">Transaksi</li>
+                    @if (Auth::user()->role == 'admin' or Auth::user()->role == 'owner')
+                        <li class="sidebar-item">
+                            <a href="/faktur" class="sidebar-link">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span>Data Pengiriman</span>
+                            </a>
+                        </li>
+                    @endif
+                    <li class="sidebar-item">
+                        <a href="/status-kirim" class="sidebar-link">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <span>Status Pengiriman</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="sidebar-title">Pengaturan</li>
 
                 <li class="sidebar-item">

@@ -1,5 +1,6 @@
 @extends ('layout.app')
 
+@section('title', 'Data Karyawan')
 @section('content')
     <section class="section">
         <div class="page-content">
@@ -12,7 +13,8 @@
                                 <div class="d-flex">
                                     <form action="/karyawan" method="GET">
                                         <div class="me-2">
-                                            <input class="form-control" name="search" type="text" placeholder="Search...">
+                                            <input class="form-control" name="search" type="text"
+                                                placeholder="Search...">
                                         </div>
                                     </form>
                                     <div>

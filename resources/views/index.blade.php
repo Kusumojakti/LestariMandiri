@@ -1,5 +1,6 @@
 @extends ('layout.app')
 
+@section('title', 'Dashboard')
 @section('content')
     <section class="section">
         <div class="page-heading">

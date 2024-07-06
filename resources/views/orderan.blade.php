@@ -1,5 +1,6 @@
 @extends ('layout.app')
 
+@section('title', 'Data Order')
 @section('content')
     <section class="section">
         <div class="page-content">
