@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\FakturController;
 use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\cekSession;
@@ -32,17 +34,20 @@ Route::middleware(cekSession::class)->group(function () {
     // kendaraan
     Route::resource('/kendaraan', KendaraanController::class)->middleware('roles:admin');
 
+    // barang
     Route::resource('/barang', BarangController::class)->middleware('roles:admin');
+    Route::get('/getAllBrg', [BarangController::class, 'getAllBrg'])->middleware('roles:admin,sales');
+
+    // orderan
+    Route::resource('/order', OrderController::class)->middleware('roles:sales,admin');
+    Route::get('/addorders', [OrderController::class, 'addOrder'])->name('addorder');
+
+    // faktur
+    Route::resource('/faktur', FakturController::class)->middleware('roles:admin,driver,owner');
+    Route::get('/status-kirim', [FakturController::class, 'shippedStatus'])->middleware('roles:admin,driver');
+    Route::get('/getAllFaktur', [FakturController::class, 'getAllFaktur']);
 
 
-    Route::get('/orderan', function () {
-        return view('orderan');
-    })->middleware('roles:admin,sales');
-
-
-    Route::get('/status-kirim', function () {
-        return view('status_pengiriman');
-    })->middleware('roles:admin,driver');
 
     Route::get('/laporan', function () {
         return view('laporan');
@@ -51,8 +56,4 @@ Route::middleware(cekSession::class)->group(function () {
     Route::get('/changepass', function () {
         return view('change_password');
     });
-    Route::get('/addorders', function () {
-        return view('tambahorder');
-    });
-    
 });

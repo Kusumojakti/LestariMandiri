@@ -61,18 +61,18 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="/orderan" class="sidebar-link">
+                    <a href="/order" class="sidebar-link">
                         <i class="fa-solid fa-bag-shopping"></i>
                         <span>Data Orderan</span>
                     </a>
                 </li>
 
-        <li class="sidebar-item">
-          <a href="/karyawan" class="sidebar-link">
-            <i class="fa-solid fa-user-tie"></i>
-            <span>Data Karyawan</span>
-          </a>
-        </li>
+                <li class="sidebar-item">
+                    <a href="/karyawan" class="sidebar-link">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <span>Data Karyawan</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-item ">
                     <a href="/pelanggan" class="sidebar-link">
@@ -91,7 +91,7 @@
                 <li class="sidebar-title">Transaksi</li>
 
                 <li class="sidebar-item">
-                    <a href="/laporan" class="sidebar-link">
+                    <a href="/faktur" class="sidebar-link">
                         <i class="fa-solid fa-truck-fast"></i>
                         <span>Data Pengiriman</span>
                     </a>

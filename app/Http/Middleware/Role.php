@@ -14,12 +14,14 @@ class Role
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $roles): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
 
         $user = Auth::user();
+        // $rolesArray = explode(',', $roles);
+        // dd($roles);
 
-        if ($user->role != $roles) {
+        if (!in_array($user->role, $roles)) {
             // User does not have the required role
             return redirect()->back();
         }

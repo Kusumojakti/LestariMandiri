@@ -20,7 +20,10 @@
                                         </div>
                                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                             <h6 class="text-muted font-semibold">Dalam Pengiriman</h6>
-                                            <div class="spinner-border" role="status">
+                                            <div id="dikirim" class="visually-hidden" role="status">
+                                                <h3>10</h3>
+                                            </div>
+                                            <div class="spinner-border" id="load_dikirim" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </div>
@@ -39,7 +42,10 @@
                                         </div>
                                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                             <h6 class="text-muted font-semibold">Pengiriman Selesai</h6>
-                                            <div class="spinner-border" role="status">
+                                            <div id="selesai" class="visually-hidden" role="status">
+                                                <h3>10</h3>
+                                            </div>
+                                            <div class="spinner-border" id="load_selesai" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </div>
@@ -58,7 +64,10 @@
                                         </div>
                                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                             <h6 class="text-muted font-semibold">Pengiriman Pending</h6>
-                                            <div class="spinner-border" role="status">
+                                            <div id="pending" class="visually-hidden" role="status">
+                                                <h3>10</h3>
+                                            </div>
+                                            <div class="spinner-border" id="load_pending" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </div>
@@ -86,4 +95,8 @@
             </section>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script src="assets/js/index.js"></script>
 @endsection

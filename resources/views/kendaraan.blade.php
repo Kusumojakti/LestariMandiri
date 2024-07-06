@@ -14,66 +14,67 @@
                                         <input class="form-control" id="exampleDataList" placeholder="Search...">
                                     </div>
                                     <div>
-                                        <button type="button" class="btn btn-primary w-100 text-bold-800" data-bs-target="#tambahorderan" data-bs-toggle="modal">Tambah Data</button>
+                                        <button type="button" class="btn btn-primary w-100 text-bold-800"
+                                            data-bs-target="#tambahdata" data-bs-toggle="modal">Tambah Data</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                            <div class="col-12 col-lg-12 mt-4">
-                                <div class="card">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                            <!-- Table with outer spacing -->
-                                            <div class="table-responsive">
-                                                <table class="table table-lg">
-                                                    <thead>
+                        <div class="col-12 col-lg-12 mt-4">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <!-- Table with outer spacing -->
+                                        <div class="table-responsive">
+                                            <table class="table table-lg">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nopol</th>
+                                                        <th>Jenis Kendaraan</th>
+                                                        <th>BBM</th>
+                                                        <th>Driver</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($data as $item)
                                                         <tr>
-                                                            <th>Nopol</th>
-                                                            <th>Jenis Kendaraan</th>
-                                                            <th>BBM</th>
-                                                            <th>Driver</th>
-                                                            <th>Aksi</th>
+                                                            <td class="text-bold-500">{{ $item->noPol }}</td>
+                                                            <td class="text-bold-500">{{ $item->jenis_kendaraan }}</td>
+                                                            <td class="text-bold-500">{{ $item->BBM }}</td>
+                                                            <td class="text-bold-500">{{ $item->driver->nama }}</td>
+                                                            <td>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-primary dropdown-toggle"
+                                                                        type="button" data-bs-toggle="dropdown"
+                                                                        aria-expanded="false">
+                                                                        Opsi
+                                                                    </button>
+                                                                    <ul class="dropdown-menu    ">
+                                                                        <li><button class="dropdown-item edit-btn"
+                                                                                data-id="{{ $item->noPol }}">Edit</button>
+                                                                        </li>
+                                                                        <li>
+                                                                            <form
+                                                                                action="{{ route('kendaraan.destroy', $item->noPol) }}"
+                                                                                method="POST">
+                                                                                @csrf
+                                                                                @method('DELETE')
+                                                                                <button type="submit"
+                                                                                    class="dropdown-item">Hapus</button>
+                                                                            </form>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
                                                         </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($data as $item)
-                                                            <tr>
-                                                                <td class="text-bold-500">{{ $item->noPol }}</td>
-                                                                <td class="text-bold-500">{{ $item->jenis_kendaraan }}</td>
-                                                                <td class="text-bold-500">{{ $item->BBM }}</td>
-                                                                <td class="text-bold-500">{{ $item->driver->nama }}</td>
-                                                                <td>
-                                                                    <div class="dropdown">
-                                                                        <button class="btn btn-primary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                            Opsi
-                                                                        </button>
-                                                                        <ul class="dropdown-menu    ">
-                                                                            <li><button class="dropdown-item edit-btn"
-                                                                                    data-id="{{ $item->noPol }}">Edit</button>
-                                                                            </li>
-                                                                            <li>
-                                                                                <form
-                                                                                    action="{{ route('kendaraan.destroy', $item->noPol) }}"
-                                                                                    method="POST">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                    <button type="submit"
-                                                                                        class="dropdown-item">Hapus</button>
-                                                                                </form>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </section>

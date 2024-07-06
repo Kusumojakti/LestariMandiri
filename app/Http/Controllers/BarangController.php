@@ -105,4 +105,10 @@ class BarangController extends Controller
         $barang->delete();
         return redirect()->back();
     }
+
+    public function getAllBrg()
+    {
+        $brg = Barang::all();
+        return response()->json($brg);
+    }
 }
