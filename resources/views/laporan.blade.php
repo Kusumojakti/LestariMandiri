@@ -65,6 +65,7 @@
                                                         <th>Status Pengiriman</th>
                                                         <th>Total Pembelian</th>
                                                         <th>Ket.</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="faktur-table-body">
@@ -78,6 +79,7 @@
                                                             <td class="text-bold-500">{{ $item->shipping_status }}</td>
                                                             <td class="text-bold-500">{{ $item->total_pembelian }}</td>
                                                             <td class="text-bold-500">{{ $item->keterangan }}</td>
+                                                            <td class="text-center"><i class="fa-solid fa-print"></i></td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -86,7 +88,9 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="d-flex justify-content-center mt-4">
+                                <button type="button" class="btn btn-primary text-bold-800 mb-3"><i class="fa-solid fa-print me-2"></i>Cetak Laporan</button>
+                            </div>
                         </div>
                     </div>
                 </section>

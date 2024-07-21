@@ -146,16 +146,10 @@
                 </div>
             </div>
         </div>
-        <!-- <script type="text/javascript">
-            $(function() {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script> -->
 
     </section>
 @endsection
 
 @section('scripts')
     <script src="assets/js/status-pengiriman.js"></script>
-    {{-- <script src="assets/js/shipment.js"></script> --}}
 @endsection
