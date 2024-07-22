@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Faktur extends Model
 {
@@ -32,5 +33,10 @@ class Faktur extends Model
     public function pelanggan(): BelongsTo
     {
         return $this->belongsTo(Pelanggan::class);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'faktur_id', 'id');
     }
 }

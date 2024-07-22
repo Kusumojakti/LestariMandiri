@@ -79,7 +79,12 @@
                                                             <td class="text-bold-500">{{ $item->shipping_status }}</td>
                                                             <td class="text-bold-500">{{ $item->total_pembelian }}</td>
                                                             <td class="text-bold-500">{{ $item->keterangan }}</td>
-                                                            <td class="text-center"><i class="fa-solid fa-print"></i></td>
+                                                            <td class="text-center">
+                                                                <a href="{{ url('/export-faktur/' . $item->id) }}" target="_blank">
+                                                                    <i class="fa-solid fa-print" id="printpdf"></i>
+                                                                </a>
+                                                            </td>
+
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -89,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-4">
-                                <button type="button" class="btn btn-primary text-bold-800 mb-3"><i class="fa-solid fa-print me-2"></i>Cetak Laporan</button>
+                                <a href="/export-laporan" class="btn btn-primary text-bold-800 mb-3"><i class="fa-solid fa-print me-2"></i>Cetak Laporan</a>
                             </div>
                         </div>
                     </div>

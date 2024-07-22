@@ -55,6 +55,10 @@ Route::middleware(cekSession::class)->group(function () {
     Route::get('/search-pelanggan/{pelanggan_id}', [FakturController::class, 'searchByPelangganId'])->middleware('roles:admin,driver,owner');
     Route::get('/getfaktur/date/{date}', [FakturController::class, 'getByDate'])->middleware('roles:admin,driver,owner');
 
+    // print to pdf
+    Route::get('/export-laporan', [FakturController::class, 'exportlaporan'])->name('export.laporan');
+    Route::get('/export-faktur/{id}', [FakturController::class, 'exportfaktur'])->name('export.faktur');
+
 
     Route::get('/changepass', function () {
         return view('change_password');

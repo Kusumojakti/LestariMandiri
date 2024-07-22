@@ -6,6 +6,7 @@ use App\Models\Faktur;
 use App\Http\Requests\StoreFakturRequest;
 use App\Http\Requests\UpdateFakturRequest;
 use App\Models\Pelanggan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -84,7 +85,28 @@ class FakturController extends Controller
         }
     }
 
+    public function exportlaporan(Request $request)
+    {
+        $data = Faktur::all();
 
+        $pdf = PDF::loadView('pdf.laporan-pdf', compact('data'))
+        ->setPaper('a4', 'landscape');;
+        return $pdf->download('laporan - ' . Carbon::now()->format('dmy') . '.pdf');
+    }
+
+    public function exportfaktur($id)
+    {
+        $data = Faktur::with('pelanggan', 'orders.barang')->find($id);
+
+        if (!$data) {
+            return redirect()->back()->with('error', 'Faktur not found');
+        }
+
+        $pdf = PDF::loadView('pdf.faktur-pdf', compact('data'))
+            ->setPaper('a4', 'landscape');
+
+        return $pdf->download('invoice-' . $data->id . '.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
