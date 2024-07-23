@@ -47,66 +47,73 @@ class OrderController extends Controller
             'tableData.*.kodeBrg' => 'required|exists:barangs,kodeBrg',
             'tableData.*.quantity' => 'required',
             'keterangan' => 'required',
-            'tableData.*.user_id' => 'required'
+            'tableData.*.user_id' => 'required',
+            'pelanggan_id' => 'required',
+            'driver' => 'required'
+
         ]);
         if ($validator->fails()) {
-            return back()->withErrors($validator->errors());
+            return redirect()->back()->withErrors($validator->errors());
         }
+
 
         // dataOrder 
         $dataOrder = json_decode($request->input('tableData'), true);
-        $totalPembelian = 0;
+        if ($dataOrder != []) {
+            $totalPembelian = 0;
 
-
-        // create faktur
-        $faktur = 'f' . Carbon::now()->format('dmy') . Str::random(3);
-
-        $cekFaktur = Faktur::find($faktur);
-        if ($cekFaktur != null) {
+            // create faktur
             $faktur = 'f' . Carbon::now()->format('dmy') . Str::random(3);
-        }
 
-        // ekstrak data order
-        foreach ($dataOrder as &$item) {
-            $item['total'] = $item['harga'] * $item['quantity'];
-            unset($item['harga']);
-            $totalPembelian += $item['total'];
-        }
+            $cekFaktur = Faktur::find($faktur);
+            if ($cekFaktur != null) {
+                $faktur = 'f' . Carbon::now()->format('dmy') . Str::random(3);
+            }
 
-        $newFaktur = Faktur::create([
-            'id' => $faktur,
-            'tanggal' => Carbon::now(),
-            'total_pembelian' => $totalPembelian,
-            'pelanggan_id' => $request->pelanggan_id,
-            'user_id' => $request->user_id,
-            'keterangan' => $request->keterangan
-        ]);
-
-        if ($newFaktur) {
-            // masukan faktur_id ke tiap baris data order
+            // ekstrak data order
             foreach ($dataOrder as &$item) {
-                $item['faktur_id'] = $faktur;
+                $item['total'] = $item['harga'] * $item['quantity'];
+                unset($item['harga']);
+                $totalPembelian += $item['total'];
             }
 
-            $newOrder = Order::insert($dataOrder);
-            if ($newOrder) {
+            $newFaktur = Faktur::create([
+                'id' => $faktur,
+                'tanggal' => Carbon::now(),
+                'total_pembelian' => $totalPembelian,
+                'pelanggan_id' => $request->pelanggan_id,
+                'user_id' => $request->driver,
+                'keterangan' => $request->keterangan
+            ]);
+
+            if ($newFaktur) {
+                // masukan faktur_id ke tiap baris data order
                 foreach ($dataOrder as &$item) {
-                    $brg = Barang::where('kodeBrg', $item['kodeBrg'])->first();
-                    $brg->update([
-                        'stock' => $brg->stock - $item['quantity']
-                    ]);
+                    $item['faktur_id'] = $faktur;
                 }
-                return redirect()->back()->with('success', 'Data inserted successfully');
+
+                $newOrder = Order::insert($dataOrder);
+                if ($newOrder) {
+                    foreach ($dataOrder as &$item) {
+                        $brg = Barang::where('kodeBrg', $item['kodeBrg'])->first();
+                        $brg->update([
+                            'stock' => $brg->stock - $item['quantity']
+                        ]);
+                    }
+                    return redirect('/order')->with('success', 'Data inserted successfully');
+                }
             }
         }
+
+        return redirect()->back()->withErrors(['data-order' => 'Data Order Tidak Boleh Kosong']);
     }
 
     public function searchorders(Request $request)
     {
         $search = $request->input('search');
         $data = Order::where('faktur_id', 'like', "%{$search}%")
-                        ->orWhere('kodeBrg', 'like', "%{$search}%")
-                        ->get();
+            ->orWhere('kodeBrg', 'like', "%{$search}%")
+            ->get();
 
         return view('orderan', compact('data'));
     }

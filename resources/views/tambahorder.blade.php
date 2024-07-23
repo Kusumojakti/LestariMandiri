@@ -27,6 +27,15 @@
                     <div class="col-12 col-lg-12 mt-4">
                         <div class="card">
                             <div class="card-content">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger fade show" role="alert">
+                                        <ul class="mb-0 ps-3">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <form id="dataForm" method="POST" action="{{ route('order.store') }}">
                                     @csrf
                                     <input type="hidden" name="tableData" id="tableData">
@@ -66,7 +75,7 @@
                                             </div>
                                             <div class="me-2">
 
-                                                <select class="form-select" name="user_id" id="user_id">
+                                                <select class="form-select" name="driver" id="driver">
                                                     <option value="">Pilih Driver</option>
                                                     @foreach ($driver as $item)
                                                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
