@@ -121,12 +121,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="add_quantity" class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="add_quantity" name="quantity"
+                            <input type="number" class="form-control" id="add_quantity" name="quantity"
                                 placeholder="Quantity">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" id="simpanOrder">Simpan</button>
+                        <button class="btn btn-primary" id="simpanOrder" disabled>Simpan</button>
                     </div>
                 </div>
             </div>
